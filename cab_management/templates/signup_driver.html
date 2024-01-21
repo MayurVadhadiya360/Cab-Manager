@@ -1,0 +1,17 @@
+<!-- templates/signup_driver.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Signup</title>
+</head>
+<body>
+    <h2>Driver Signup</h2>
+    <form method="post" action="{% url 'signup_driver' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Signup</button>
+    </form>
+</body>
+</html>

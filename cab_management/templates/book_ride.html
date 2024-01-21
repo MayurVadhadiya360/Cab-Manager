@@ -1,0 +1,17 @@
+<!-- templates/book_ride.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Booking</title>
+</head>
+<body>
+    <h2>Ride Booking</h2>
+    <form method="post" action="{% url 'book_ride' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Book Ride</button>
+    </form>
+</body>
+</html>
