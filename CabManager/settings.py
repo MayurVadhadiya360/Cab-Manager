@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+import environ
+
+# Initialise environment variables
+# Create .env in same directory as settings.py and store sensitive info in it.
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(y^&d38s_oazt9y*@1c%2zxr+*&qt#q7h2zz*3(t6#yw@#_3_e'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -136,7 +142,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com' # SMTP server for your email provider
 EMAIL_PORT = 587 # Port for the SMTP server
 EMAIL_USE_TLS = True # Use TLS encryption
-EMAIL_HOST_USER = '' # Your email address
-EMAIL_HOST_PASSWORD = '' # Your email password
+EMAIL_HOST_USER = env('EMAIL_HOST_USER') # Your email address
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD') # Your email password
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'

@@ -5,7 +5,7 @@ from django.core.mail import send_mail
 from .forms import UserRegistrationForm, UserLoginForm, RideBookingForm, DriverSignupForm
 from .models import User, Driver, Ride, Feedback
 
-admin_email = "" # Your admin mail
+admin_email = "vadhadiya.mayur@gmail.com"
 # Create your views here.
 user_profile = {
     'user_logged_in': False,

@@ -12,8 +12,8 @@ class User(models.Model):
 
 class Driver(models.Model):
     username = models.CharField(max_length=50)
-    email = models.EmailField(unique=True, default='example@mail.com')
-    password = models.CharField(max_length=100, default="**********")
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length=100)
     license_number = models.CharField(max_length=20, unique=True)
     vehicle_model = models.CharField(max_length=50)
     overall_rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.0)
